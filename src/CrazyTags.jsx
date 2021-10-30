@@ -6,7 +6,8 @@ import '@yaireo/dragsort/dist/dragsort.css'
 //import Tags from './tagify/react.tagify'
 import Tags from '@yaireo/tagify/dist/react.tagify'
 import Axios from 'axios'
-
+import './CrazyTag.css'
+import searchIcon from './assets/search.png'
 /////////////////////////////////////////////////
 
 // Tagify settings object
@@ -14,7 +15,7 @@ const baseTagifySettings = {
   blacklist: ["xxx", "yyy", "zzz"],
   maxTags: 6,
   //backspace: "edit",
-  placeholder: "type something",
+  placeholder: "Search Make, Type, Year",
   dropdown: {
     enabled: 0 // a;ways show suggestions dropdown
   }
@@ -85,10 +86,11 @@ const CrazyTags = () => {
     if(searchVal.length > 2){
       let jsonArray = searchVal.slice(1,-1).split(",")
       console.log(jsonArray.length)
+      let tempArray = [];
       const verifyfunc = async () =>{
         if(jsonArray.length > 0){
           let i = 0;
-      
+          
           while(i < jsonArray.length){
             // console.log(JSON.parse(jsonArray[i]));
             let tempObj = JSON.parse(jsonArray[i])
@@ -132,87 +134,11 @@ const CrazyTags = () => {
             //       tempObj.type = 'vehicletype'
             //     }
                 console.log(tempObj)
-                objectArray[i]=tempObj;
+                tempArray[i]=tempObj;
+                
                 console.log(objectArray)
             //     // console.log(response.data)
-            function fetchData(){
-              console.log(objectArray)
-              let make;
-              let type;
-              let year;
-              let i = 0;
-              console.log(make)
-              // console.log(objectArray[5].type)
-              // console.log(objectArray)
-              // console.log(objectArray.length)
-              if(objectArray.length > 0){
-                console.log(objectArray[0].type)
-                while(i<objectArray.length){
-                  console.log(i)
-                  console.log(objectArray[i].value)
-                  if(objectArray[i].type === 'make'){
-                    make = `${objectArray[i].value}`
-                  }else if(objectArray[i].type == 'vehicletype'){
-                    type = `${objectArray[i].value}`
-                  }else{
-                    year = `${objectArray[i].value}`
-                  }
-                  i++
-                }
-                console.log(make)
-                if(make !== undefined){
-                  if(type !== undefined){
-                    if(year !== undefined){
-                      Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}/vehicletype/${type}?format=json`).then(res=>{
-                        console.log(res.data.Results)
-                        setCarList(res.data.Results)
-                      })
-                      console.log(make)
-                      console.log(carList)
-                    }else{
-                      Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/vehicletype/${type}?format=json`).then(res=>{
-                        console.log(res.data.Results)
-                        setCarList(res.data.Results)
-                      })
-                      console.log(make)
-                      console.log(carList)
-                    }
-                  }else{
-                    if(year !== undefined){
-                      Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`).then(res=>{
-                        console.log(res.data.Results)
-                        setCarList(res.data.Results)
-                      })
-                      console.log(make)
-                      console.log(carList)
-                    }else{
-                      Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${make}?format=json`).then(res=>{
-                        console.log(res.data.Results)
-                        setCarList(res.data.Results)
-                      })
-                      console.log(make)
-                      console.log(carList)
-                    }
-                  }
-                }else{
-                  if(type !== undefined){
-                    if(year !== undefined){
-                      console.log('not support')
-                    }else{
-                      Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/${type}?format=json`).then(res=>{
-                      console.log(res.data.Results)
-                      setCarList(res.data.Results)
-                      })
-                      console.log(make)
-                      console.log(carList)
-                    }
-                  }
-                }
 
-              }
-              
-            }
-            fetchData()
             
             //   })
             }
@@ -225,15 +151,111 @@ const CrazyTags = () => {
             
             i++;
           }
+          
+          console.log(objectArray)
+
+
+          
         }
+        setobjectArray(tempArray)
+        // return tempArray
       }
       verifyfunc()
-     
+
+      // console.log(verifyfunc())
+        // const updateObjectArray = async() =>{
+        //   await setobjectArray(verifyfunc())
+        //   if(objectArray !== []){
+
+            
+        //   }
+        // }
+      // updateObjectArray()
       }else{
         setCarList([])
       }
   },[searchVal])
+  function fetchData(objectArray){
+      console.log(objectArray)
+      let make = '';
+      let type = '';
+      let year = '';
+      let i = 0;
+      console.log(make)
+      // console.log(objectArray[5].type)
+      // console.log(objectArray)
+      // console.log(objectArray.length)
+      if(objectArray.length > 0){
+        console.log(objectArray[0].type)
+        while(i<objectArray.length){
+          console.log(i)
+          console.log(objectArray[i].value)
+          if(objectArray[i].type === 'make'){
+            make = `${objectArray[i].value}`
+          }else if(objectArray[i].type == 'vehicletype'){
+            type = `${objectArray[i].value}`
+          }else{
+            year = `${objectArray[i].value}`
+          }
+          i++
+        }
+        console.log(make)
+        if(make !== ''){
+          if(type !== ''){
+            if(year !== ''){
+              Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}/vehicletype/${type}?format=json`).then(res=>{
+                console.log(res.data.Results)
+                setCarList(res.data.Results)
+              })
+              console.log(make)
+              console.log(carList)
+            }else{
+              Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/vehicletype/${type}?format=json`).then(res=>{
+                console.log(res.data.Results)
+                setCarList(res.data.Results)
+              })
+              console.log(make)
+              console.log(carList)
+            }
+          }else{
+            if(year !== ''){
+              Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`).then(res=>{
+                console.log(res.data.Results)
+                setCarList(res.data.Results)
+              })
+              console.log(make)
+              console.log(carList)
+            }else{
+              Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${make}?format=json`).then(res=>{
+                console.log(res.data.Results)
+                setCarList(res.data.Results)
+              })
+              console.log(make)
+              console.log(carList)
+            }
+          }
+        }else{
+          // if(type !== undefined){
+          //   if(year !== undefined){
+          //     console.log('not support')
+          //   }else{
+          //     Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetMakesForVehicleType/${type}?format=json`).then(res=>{
+          //     console.log(res.data.Results)
+          //     setCarList(res.data.Results)
+          //     })
+          //     console.log(make)
+          //     console.log(carList)
+          //   }
+          // }
+          console.log('enter make')
+        }
 
+      }
+      
+  }
+  useEffect(()=>{
+    fetchData(objectArray)
+  },[objectArray])
   
   // useEffect(()=>{
   //   // Axios.get()
@@ -273,43 +295,63 @@ const CrazyTags = () => {
   
   return (
     <>
-      <h2>
-        <em>Crazy</em> Tags:
-      </h2>
-      <p>
-        Wait a <em>few seconds</em> to see things happen. <br />
-        <small>
-          <em>(Carefully examine the source-code)</em>
-        </small>
-      </p>
+
       <button className="clearAllBtn" onClick={clearAll}>
         Clear All
       </button>
-      <Tags
-        tagifyRef={tagifyRef1}
-        settings={settings}
-        // defaultValue="a,b,c"
-        autoFocus={true}
-        {...tagifyProps}
-        onChange={onChange}
-        onEditInput={() => console.log("onEditInput")}
-        onEditBeforeUpdate={() => console.log`onEditBeforeUpdate`}
-        onEditUpdated={() => console.log("onEditUpdated")}
-        onEditStart={() => console.log("onEditStart")}
-        onEditKeydown={() => console.log("onEditKeydown")}
-        onDropdownShow={() => console.log("onDropdownShow")}
-        onDropdownHide={() => console.log("onDropdownHide")}
-        onDropdownSelect={() => console.log("onDropdownSelect")}
-        onDropdownScroll={() => console.log("onDropdownScroll")}
-        onDropdownNoMatch={() => console.log("onDropdownNoMatch")}
-        onDropdownUpdated={() => console.log("onDropdownUpdated")}
-      />
+      <div className="searchBar">
+        <div className="iconCont">
+          <img src={searchIcon}/>
+        </div>
+        <Tags
+          className="tagClass"
+          tagifyRef={tagifyRef1}
+          settings={settings}
+          // defaultValue="a,b,c"
+          autoFocus={true}
+          {...tagifyProps}
+          onChange={onChange}
+          onEditInput={() => console.log("onEditInput")}
+          onEditBeforeUpdate={() => console.log`onEditBeforeUpdate`}
+          onEditUpdated={() => console.log("onEditUpdated")}
+          onEditStart={() => console.log("onEditStart")}
+          onEditKeydown={() => console.log("onEditKeydown")}
+          onDropdownShow={() => console.log("onDropdownShow")}
+          onDropdownHide={() => console.log("onDropdownHide")}
+          onDropdownSelect={() => console.log("onDropdownSelect")}
+          onDropdownScroll={() => console.log("onDropdownScroll")}
+          onDropdownNoMatch={() => console.log("onDropdownNoMatch")}
+          onDropdownUpdated={() => console.log("onDropdownUpdated")}
+        />
+      </div>
 
-      <div>
+
+      <div className="carContainer">
         {carList.map((car)=>{
           return(
-            <div>
-              {car.Model_Name}
+            <div className="carCard">
+              <div className="carImg">
+                <img src='https://motorillustrated.com/wp-content/uploads/2020/09/2020-Toyota-4Runner-TRD-Off-Road-01.jpg'/>
+              </div>
+              <div className="carText">
+                <div className='item1'>
+                  {car.Make_Name}
+                  {/* <br/> */}
+                </div>
+                <div className='item2'>
+                  {car.Model_Name}
+                  {/* {car.VehicleTypeName} */}
+
+                </div>
+                <div className='item3'>
+
+                {car.Model_ID}
+                </div>
+                <div className='item4'>
+                  Details
+                </div>
+              </div>
+
             </div>
           )
         })}

@@ -19,14 +19,10 @@ export default function App() {
   return (
     <Router>
       <header>
-        <h1>
-          <a href="https://github.com/yairEO/tagify">Tagify</a> React Demos:
-        </h1>
+        <div className="header">
+          Finda-Car:
+        </div>
 
-        <nav>
-          <NavLink to="/CrazyTags">Tags</NavLink>
-
-        </nav>
       </header>
 
       <Switch>

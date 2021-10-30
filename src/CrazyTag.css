@@ -1,0 +1,75 @@
+
+.searchBar{
+    /* min-width: 400px; */
+    margin: auto;
+    max-width: 600px;
+    width: 94%;
+    display: grid;
+    grid-template-columns: 50px auto;
+}
+.iconCont{
+    height: 37.594px;
+    /* line-height: 37.594px;; */
+}
+.iconCont img{
+    margin: auto;
+    width: 90%;
+    height: 90%;
+
+}
+.tagClass{
+    /* width: 90%; */
+}
+
+
+.carContainer{
+    display: grid;
+    grid-template-columns: auto;
+}
+.carCard{
+    width: 94%;
+    /* height: 400px; */
+
+    display: grid;
+    margin: 10px auto;
+    /* grid-template-columns */
+
+}
+.carImg img{
+    width: 100%;
+    /* height: 80%; */
+}
+.item1 {grid-area: item1; text-align: center;}
+.item2 {grid-area: item2; text-align: center;}
+.item3 {grid-area: item3; text-align: center;}
+.item4 {
+    grid-area: item4; 
+    text-align: center;
+    background-color: black;
+    color: white
+}
+
+.carText{
+    display: grid;
+    /* grid-template-columns: auto auto auto; */
+    grid-template-areas: 
+    'item1 item2 item3'
+    'item4 item4 item4';
+}
+@media screen and (min-width: 700px ) {
+    .carContainer{
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 80%;
+        margin: auto;
+    }
+    .carCard{
+        /* width: 90%; */
+        /* height: 400px; */
+    
+        display: grid;
+        margin: 10px auto;
+        /* grid-template-columns */
+    
+    }
+}
