@@ -2,12 +2,13 @@ import React, {useState, useEffect, useCallback, useRef, useMemo} from 'react'
 import {getWhitelistFromServer} from './mockServer'
 import DragSort from '@yaireo/dragsort'
 import '@yaireo/dragsort/dist/dragsort.css'
+import Loading from './utils/loading'
 
 //import Tags from './tagify/react.tagify'
 import Tags from '@yaireo/tagify/dist/react.tagify'
 import Axios from 'axios'
 import './CrazyTag.css'
-import searchIcon from './assets/search.png'
+import searchIcon from './assets/search-3-64.png'
 /////////////////////////////////////////////////
 
 // Tagify settings object
@@ -31,8 +32,9 @@ const CrazyTags = () => {
   const [tagifySettings, setTagifySettings] = useState([])
   const [tagifyProps, setTagifyProps] = useState({})
   const [searchVal, setSearchVal] = useState([])
-  const [objectArray, setobjectArray] = useState([])
+  const [objectArray, setobjectArray] = useState([{value: 'toyota', type: 'make'}])
   const [carList, setCarList] = useState([])
+  const [loading, setLoading] = useState(true)
   // console.log(tagifyProps)
   // on component mount
   useEffect(() => {
@@ -205,14 +207,21 @@ const CrazyTags = () => {
             if(year !== ''){
               Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}/vehicletype/${type}?format=json`).then(res=>{
                 console.log(res.data.Results)
-                setCarList(res.data.Results)
+                if(res == true){
+                  setCarList(res.data.Results)
+                  setLoading(false)
+                }
               })
               console.log(make)
               console.log(carList)
             }else{
               Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/vehicletype/${type}?format=json`).then(res=>{
                 console.log(res.data.Results)
-                setCarList(res.data.Results)
+                // setCarList(res.data.Results)
+                if(res == true){
+                  setCarList(res.data.Results)
+                  setLoading(false)
+                }
               })
               console.log(make)
               console.log(carList)
@@ -221,14 +230,22 @@ const CrazyTags = () => {
             if(year !== ''){
               Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`).then(res=>{
                 console.log(res.data.Results)
-                setCarList(res.data.Results)
+                // setCarList(res.data.Results)
+                if(res == true){
+                  setCarList(res.data.Results)
+                  setLoading(false)
+                }
               })
               console.log(make)
               console.log(carList)
             }else{
               Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${make}?format=json`).then(res=>{
                 console.log(res.data.Results)
-                setCarList(res.data.Results)
+                // setCarList(res.data.Results)
+                if(Boolean(res.data.Count) == true){
+                  setCarList(res.data.Results)
+                  setLoading(false)
+                }
               })
               console.log(make)
               console.log(carList)
@@ -296,9 +313,13 @@ const CrazyTags = () => {
   return (
     <>
 
-      <button className="clearAllBtn" onClick={clearAll}>
+      {/* <button className="clearAllBtn" onClick={clearAll}>
         Clear All
-      </button>
+        
+      </button> */}
+      
+   {/* <div></div> */}
+      <div className="mainTag">
       <div className="searchBar">
         <div className="iconCont">
           <img src={searchIcon}/>
@@ -323,9 +344,12 @@ const CrazyTags = () => {
           onDropdownNoMatch={() => console.log("onDropdownNoMatch")}
           onDropdownUpdated={() => console.log("onDropdownUpdated")}
         />
+        {/* <div onClick={clearAll}>
+          Clear All
+        </div> */}
       </div>
 
-
+      {loading ? <Loading/> : 
       <div className="carContainer">
         {carList.map((car)=>{
           return(
@@ -333,13 +357,15 @@ const CrazyTags = () => {
               <div className="carImg">
                 <img src='https://motorillustrated.com/wp-content/uploads/2020/09/2020-Toyota-4Runner-TRD-Off-Road-01.jpg'/>
               </div>
-              <div className="carText">
+              <div style={{textShadow:'0 0 8px hsl(0deg 0% 100% / 33%)' }} className="carText">
                 <div className='item1'>
-                  {car.Make_Name}
+                  <span style={{color: '#008964', fontWeight:'ligher'}}>Brand </span><br/>
+                  <span style={{ fontWeight:'bold'}}>{car.Make_Name}</span>
                   {/* <br/> */}
                 </div>
                 <div className='item2'>
-                  {car.Model_Name}
+                <span style={{color: '#008964', fontWeight:'ligher'}}> Model </span><br/>
+                <span style={{ fontWeight:'bold'}}>{car.Model_Name}</span>
                   {/* {car.VehicleTypeName} */}
 
                 </div>
@@ -347,8 +373,8 @@ const CrazyTags = () => {
 
                 {car.Model_ID}
                 </div>
-                <div className='item4'>
-                  Details
+                <div style={{color: '#00563f', fontWeight:'bold'}} className='item4'>
+                  DETAILS
                 </div>
               </div>
 
@@ -356,6 +382,9 @@ const CrazyTags = () => {
           )
         })}
       </div>
+      }
+      </div>
+          
 
     </>
   )

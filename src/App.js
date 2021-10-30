@@ -7,7 +7,7 @@ import {
   NavLink,
   Redirect
 } from "react-router-dom"
-
+import './App.css'
 import '@yaireo/ui-switch/src/switch.scss'
 import "./styles.scss" // basic styles for this demo/
 
@@ -17,20 +17,24 @@ import CrazyTags from "./CrazyTags"
 
 export default function App() {
   return (
-    <Router>
-      <header>
-        <div className="header">
-          Finda-Car:
-        </div>
+       <Router>
+         <div className="App">
+          <header>
+          <div className="header">
+            Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
+          </div>
 
-      </header>
+          </header>
 
-      <Switch>
-        {/* <Route exact path="/TagifyWithTemplates" component={TagifyWithTemplates} /> */}
-        <Route exact path="/CrazyTags" component={CrazyTags} />
-        {/* <Route exact path="/MixedModeTagify" component={MixedModeTagify} /> */}
-        <Redirect exact from="/" to="/CrazyTags" />
-      </Switch>
+          <Switch>
+            {/* <Route exact path="/TagifyWithTemplates" component={TagifyWithTemplates} /> */}
+            <Route exact path="/CrazyTags" component={CrazyTags} />
+            {/* <Route exact path="/MixedModeTagify" component={MixedModeTagify} /> */}
+            <Redirect exact from="/" to="/CrazyTags" />
+          </Switch>
+         </div>
+      
     </Router>
+   
   )
 }
