@@ -1,0 +1,28 @@
+.searchBar{
+    margin: 20px auto;
+    max-width: 600px;
+    width: 94%;
+    display: grid;
+    grid-template-columns: 50px auto;
+    height: 37.594px;
+    border: 1px white solid;
+}
+
+.iconCont{
+    height: 37.594px;
+}
+
+.iconCont img{
+    display: block;
+    margin: 10% auto;
+    -top: 45%;
+    width: 50%;
+    height: 60%;
+
+}
+
+.carContainer{
+    display: grid;
+    grid-template-columns: auto;
+}
+

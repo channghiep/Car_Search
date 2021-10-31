@@ -6,47 +6,72 @@
   font-family: gothamMedium;
   src: url(./fonts/GothamMedium.ttf)
 }
+@import "@yaireo/tagify/dist/tagify.css"; 
+
+html,
+body,
+#app {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+} 
+body .tagify {
+  --tag-bg: #6C0E42;
+  --tag-text-color: white;
+  --tag-text-color--edit: var(--tag-bg);
+  --tag-hover: rgb(162,8,56);
+  --tag-remove-btn-color: white;
+  border: 0px;
+}
+#app *{ padding: 0 1.5rem; }
+
+.tagify__input:empty::before {
+  color:#fff;
+  font-weight: 100;
+}
+header{
+  color: #fff;
+  font-size: 33px;
+  text-shadow: 0 0 8px hsl(0deg 0% 100% / 33%);
+  box-shadow: -1px 0 20px -8px 	#696969;
+  text-align: right;
+  padding: 1.5rem !important;
+}
+
 .App {
-  /* text-align: center; */
-  /* font-family: Arial, Helvetica, sans-serif; */
   background-color: #000;
   color: #bababa;
   font-family: gothamMedium;
   min-height: 100vh;
-}
-.body{
-  
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-/* .header{
-  text-align: center;
-  background-color: #fafafa;
-  box-shadow: -1px 0 20px -8px #b1b1b1;
-} */
+
+.preload-wrapper.finish {
+  opacity: 0;
+  transition: opacity .5s ease-out;
+}
+
+.preload-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  /* color: white; */
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {

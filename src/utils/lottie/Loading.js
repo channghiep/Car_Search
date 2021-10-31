@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Lottie from 'react-lottie'
-import animationData from './lottie/loading.json'
+import animationData from './loading.json'
 
 class Loading extends Component {
     

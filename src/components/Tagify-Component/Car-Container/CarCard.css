@@ -1,0 +1,42 @@
+.carCard{
+    width: 94%;
+    display: grid;
+    margin: 10px auto;
+}
+.carImg img{
+    width: 100%;
+}
+.item1 {grid-area: item1; height:50px;padding-top: 10px;}
+.item2 {grid-area: item2;  height:50px;padding-top: 10px;}
+.item3 {grid-area: item3; text-align: right; height:50px;padding-top: 10px;}
+.item4 {
+    grid-area: item4; 
+    text-align: center;
+    color: black;
+    background-color: #d0d1d2;
+    height: 30px;
+    padding-top: 5px;
+}
+
+.carText{
+    display: grid;
+    grid-template-areas: 
+    'item1 item2 item3'
+    'item1 item2 item3'
+    'item4 item4 item4';
+    color: #d0d1d2;
+
+}
+
+@media screen and (min-width: 700px ) {
+    .carContainer{
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 80%;
+        margin: auto;
+    }
+    .carCard{   
+        display: grid;
+        margin: 10px auto;   
+    }
+}

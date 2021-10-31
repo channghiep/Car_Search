@@ -1,0 +1,140 @@
+.toggle-btn > button {
+    height: 30px;
+    width: 40px;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+
+    position: absolute;
+    top: 24px;
+    /* right: 24px; */
+    z-index: 3;
+
+    transition: all .5s ease-in-out;
+}
+/* .hidden{
+    overflow: hidden;
+} */
+
+.changed-btn {
+    height: 30px;
+    width: 40px;
+    cursor: pointer;
+
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    transition: all .5s ease-in-out;
+}
+
+.toggle-btn:focus {
+    outline: none;
+}
+
+.toggle-btn__line {
+    width: 40px;
+    height: 6px;
+    background-color: #E5E5E5;
+
+    transition: all .5s ease-in-out;
+}
+
+.changed-btn .toggle-btn__line:nth-of-type(2) {
+    transform: translateX(20px);
+    background: transparent;
+}
+
+.changed-btn .toggle-btn__line:first-of-type {
+    transform: rotate(45deg) translate(9px, 8px);
+    background-color: #FFF;
+}
+
+.changed-btn .toggle-btn__line:last-of-type {
+    transform: rotate(-45deg) translate(9px, -8px);
+    background-color: #FFF;
+}
+
+.changed-btn + .side-drawer {
+    transition: all .5s ease-in-out;
+    transform: translateX(0);
+}
+
+.side-drawer {
+    /* font-family: "Montserrat", sans-serif; */
+    /* color: #FFF; */
+    
+    background-color: #000;
+    font-weight: 900;
+    font-size: 24pt;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: all .5s ease-in-out;
+    transform: translateX(-100%);
+    z-index: 2;
+    
+}
+
+.side-drawer-items ul {
+    list-style: none;
+
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    margin-top: 200px;
+}
+
+.side-drawer-items li {
+    margin-bottom: 16px;
+}
+
+.side-drawer-items li a {
+    text-decoration: none;
+    /* color: #FFF; */
+    color: #008964!important;
+}
+
+.side-drawer a {
+    margin-right: 30px;
+}
+
+.side-drawer a:last-of-type {
+    margin-right: 0;
+}
+
+
+
+
+/* @media screen and (min-width: 769px) {
+
+    .toggle-btn button {
+        display: none;
+    }
+
+    .toggle-zone {
+        display: none;
+    }
+
+    .side-drawer {
+        display: none;
+    }
+
+} */
