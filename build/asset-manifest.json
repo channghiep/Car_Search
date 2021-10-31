@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6bcad458.chunk.css",
+    "main.js": "/static/js/main.fe7e3c74.chunk.js",
+    "main.js.map": "/static/js/main.fe7e3c74.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0ca01b0a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0ca01b0a.js.map",
+    "static/css/2.70849a63.chunk.css": "/static/css/2.70849a63.chunk.css",
+    "static/js/2.bcbc42a0.chunk.js": "/static/js/2.bcbc42a0.chunk.js",
+    "static/js/2.bcbc42a0.chunk.js.map": "/static/js/2.bcbc42a0.chunk.js.map",
+    "static/js/3.4f85b906.chunk.js": "/static/js/3.4f85b906.chunk.js",
+    "static/js/3.4f85b906.chunk.js.map": "/static/js/3.4f85b906.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.70849a63.chunk.css.map": "/static/css/2.70849a63.chunk.css.map",
+    "static/css/main.6bcad458.chunk.css.map": "/static/css/main.6bcad458.chunk.css.map",
+    "static/js/2.bcbc42a0.chunk.js.LICENSE.txt": "/static/js/2.bcbc42a0.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/GothamMedium.0a910c0b.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0ca01b0a.js",
+    "static/css/2.70849a63.chunk.css",
+    "static/js/2.bcbc42a0.chunk.js",
+    "static/css/main.6bcad458.chunk.css",
+    "static/js/main.fe7e3c74.chunk.js"
+  ]
+}
