@@ -32,19 +32,26 @@ export default function App() {
           </div>
         </div>
       :
+      <div style={{display:'grid', gridTemplateColumns:'100%'}}>
         <Router>
-          <header>
-            <BurgerMenu/>
-            <a style={{textDecoration:'none', color:'white'}} href="http://localhost:3000">
-              <div className="header">
-                Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
-              </div>
-            </a>
-          </header>
+          <div className="AppHeader">
+            <div className="menu-cont">
+              <BurgerMenu/>
+            </div>
+            <div className="Appl-logo">
+              <p>
+                  Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
+              </p>
+              
+            </div> 
+          </div>
           <Switch>
+            <div>
             <Route exact path="/" component={TagifySearch} />
+            </div>
           </Switch>
         </Router>
+      </div>
       }
     </div>  
   )

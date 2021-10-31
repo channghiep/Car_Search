@@ -6,7 +6,6 @@
   font-family: gothamMedium;
   src: url(./fonts/GothamMedium.ttf)
 }
-@import "@yaireo/tagify/dist/tagify.css"; 
 
 html,
 body,
@@ -20,19 +19,6 @@ body,
 *::after {
   box-sizing: border-box;
 } 
-/* body  */
-#app *{ padding: 0 1.5rem; }
-
-
-header{
-  color: #fff;
-  font-size: 33px;
-  text-shadow: 0 0 8px hsl(0deg 0% 100% / 33%);
-  box-shadow: -1px 0 20px -8px 	#696969;
-  text-align: right;
-  padding: 1.5rem !important;
-  margin: 0px;
-}
 
 .App {
   background-color: #000;
@@ -41,9 +27,30 @@ header{
   min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
+.AppHeader{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 70px;
+  box-shadow: -1px 0 20px -8px 	#696969;
+}
+
+.menu-cont{
+  margin-left: 1rem;
+}
+.Appl-logo {
+  height: 100%;
   pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.Appl-logo p{
+  color: #fff;
+  margin-right: 1rem;
+  padding-top: 1rem;
+  font-size: 2rem;
+  text-shadow: 0 0 8px hsl(0deg 0% 100% / 33%);
+  
 }
 
 .preload-wrapper.finish {
@@ -59,17 +66,3 @@ header{
 }
 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
