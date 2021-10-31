@@ -1,11 +1,15 @@
 import React from 'react'
 import './CarCard.css'
 
+
 export default function CarCard(props){
+    function addDefaultImage(e){
+        e.target.src = '/default.png'
+    }
     return(
         <div className="carCard">
             <div className="carImg">
-                <img src='https://motorillustrated.com/wp-content/uploads/2020/09/2020-Toyota-4Runner-TRD-Off-Road-01.jpg'/>
+                <img onError={addDefaultImage} src={`/${props.makeName.toLowerCase()}.jpg`}/>
             </div>
             <div style={{textShadow:'0 0 8px hsl(0deg 0% 100% / 33%)' }} className="carText">
                 <div className='item1'>

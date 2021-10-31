@@ -3,6 +3,9 @@
     display: grid;
     margin: 10px auto;
 }
+.carImg{
+    width: 100%;
+}
 .carImg img{
     width: 100%;
 }
@@ -26,17 +29,4 @@
     'item4 item4 item4';
     color: #d0d1d2;
 
-}
-
-@media screen and (min-width: 700px ) {
-    .carContainer{
-        display: grid;
-        grid-template-columns: auto auto;
-        width: 80%;
-        margin: auto;
-    }
-    .carCard{   
-        display: grid;
-        margin: 10px auto;   
-    }
 }

@@ -15,7 +15,7 @@
 .iconCont img{
     display: block;
     margin: 10% auto;
-    -top: 45%;
+    top: 45%;
     width: 50%;
     height: 60%;
 
@@ -24,5 +24,14 @@
 .carContainer{
     display: grid;
     grid-template-columns: auto;
+}
+
+@media screen and (min-width: 700px ) {
+    .carContainer{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 80%;
+        margin: auto;
+    }
 }
 

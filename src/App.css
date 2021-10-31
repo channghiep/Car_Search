@@ -41,6 +41,7 @@ header{
   box-shadow: -1px 0 20px -8px 	#696969;
   text-align: right;
   padding: 1.5rem !important;
+  margin: 0px;
 }
 
 .App {

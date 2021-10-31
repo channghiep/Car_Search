@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Lottie from 'react-lottie'
-import animationData from './loading.json'
+import animationData from './lf30_nhg4au0e.json'
 
 class Loading extends Component {
     
@@ -17,12 +17,10 @@ class Loading extends Component {
         };
 
         return(
-            <div>
-                <Lottie options={defaultOptions}
-                    height={400}
-                    width={400}
-                />
-            </div>
+            <Lottie options={defaultOptions}
+                height={300}
+                width={300}
+            />
         )
     }
 }

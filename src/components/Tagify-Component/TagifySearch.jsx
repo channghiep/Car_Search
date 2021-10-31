@@ -26,14 +26,15 @@ const baseTagifySettings = {
 const TagifySearch = () => {
   const tagifyRef1 = useRef()
   const [tagifySettings, setTagifySettings] = useState([])
-  const [tagifyProps, setTagifyProps] = useState({})
+  // const [tagifyProps, setTagifyProps] = useState({})
   const [searchVal, setSearchVal] = useState([])
   // const [objectArray, setobjectArray] = useState([{value: 'toyota', type: 'make'}])
   const [objectArray, setobjectArray] = useState([])
   const [carList, setCarList] = useState([])
+  //Loading state
   const [loading, setLoading] = useState(true)
-
-
+  //----------------------//
+  const [notice, setNotice] = useState(true)
 
   // merged tagify settings (static & dynamic)
   const settings = {
@@ -46,6 +47,7 @@ const TagifySearch = () => {
     console.log(typeof e.detail.value)
     setSearchVal(e.detail.value)
   }, [])
+
   // access Tagify clearAll:
   // const clearAll = () => {
   //   tagifyRef1.current && tagifyRef1.current.removeAllTags()
@@ -70,14 +72,17 @@ const TagifySearch = () => {
               //vehicles/GetVehicleTypesForMake/mercedes?format=json--Vehicle name
               await Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetVehicleTypesForMake/${tempObj.value}?format=json`)
                 .then(res =>{
-                  if(res.data.Count  !=0){
+                  if(res.data.Count  !==0){
                     tempObj.type = 'make'
-                    console.log(tempObj.type)
                   }else{
                     tempObj.type = 'year'
                   }
+                }).catch((error)=>{
+                  console.log(error)
                 })
             }else{
+              setCarList([])
+              setLoading(true)
               tempObj.type = 'vehicletype'
             }
               //Filling up temporary Array to pass to objectArray
@@ -94,6 +99,7 @@ const TagifySearch = () => {
       verifyfunc()
     }else{
       setCarList([])
+      setLoading(true)
     }
   },[searchVal])
   //This function will go through the objectArray to indentify what API can be used base on user's input
@@ -103,12 +109,11 @@ const TagifySearch = () => {
     let type = '';
     let year = '';
     let i = 0;
-    console.log(make)
     if(objectArray.length > 0){
       while(i<objectArray.length){
         if(objectArray[i].type === 'make'){
           make = `${objectArray[i].value}`
-        }else if(objectArray[i].type == 'vehicletype'){
+        }else if(objectArray[i].type === 'vehicletype'){
           type = `${objectArray[i].value}`
         }else{
           year = `${objectArray[i].value}`
@@ -119,37 +124,48 @@ const TagifySearch = () => {
         if(type !== ''){
           if(year !== ''){
             Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}/vehicletype/${type}?format=json`).then(res=>{
-              if(Boolean(res.data.Count) == true){
+              if(Boolean(res.data.Count) === true){
                 setCarList(res.data.Results)
                 setLoading(false)
               }
+            }).catch((error)=>{
+              console.log(error)
             })
           }else{
             Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/vehicletype/${type}?format=json`).then(res=>{
-              if(Boolean(res.data.Count) == true){
+              if(Boolean(res.data.Count) === true){
                 setCarList(res.data.Results)
                 setLoading(false)
               }
+            }).catch((error)=>{
+              console.log(error)
             })
           }
         }else{
           if(year !== ''){
             Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMakeYear/make/${make}/modelyear/${year}?format=json`).then(res=>{
-              if(Boolean(res.data.Count) == true){
+              if(Boolean(res.data.Count) === true){
                 setCarList(res.data.Results)
                 setLoading(false)
               }
+            }).catch((error)=>{
+              console.log(error)
             })
           }else{
             Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${make}?format=json`).then(res=>{
-              if(Boolean(res.data.Count) == true){
+              if(Boolean(res.data.Count) === true){
                 setCarList(res.data.Results)
                 setLoading(false)
               }
+            }).catch((error)=>{
+              console.log(error)
             })
           }
         }
+      setNotice(false) 
       }else{
+        // console.log('Enter Make')
+        setNotice(true)
       }
     }
   }
@@ -163,7 +179,7 @@ const TagifySearch = () => {
       <div className="mainTag">
         <div className="searchBar">
           <div className="iconCont">
-            <img src={searchIcon}/>
+            <img src={searchIcon} alt="search icon"/>
           </div>
           <Tags
             className="tagClass"
@@ -184,8 +200,14 @@ const TagifySearch = () => {
             onDropdownUpdated={() => console.log("onDropdownUpdated")}
           />
         </div>
-
-        {loading ? <Loading/> : 
+        {notice ? <p style={{textAlign:"center"}}>Please enter Make</p> : <p></p>}
+        {loading ? 
+          <div style={{height:'70vh'}} class="preload-wrapper">
+            <div class="preload-item">
+              <Loading/> 
+            </div>
+          </div>
+        : 
         <div className="carContainer">
           {carList.map((car)=>{
             return(

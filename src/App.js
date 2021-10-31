@@ -35,9 +35,11 @@ export default function App() {
         <Router>
           <header>
             <BurgerMenu/>
-            <div className="header">
-              Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
-            </div>
+            <a style={{textDecoration:'none', color:'white'}} href="http://localhost:3000">
+              <div className="header">
+                Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
+              </div>
+            </a>
           </header>
           <Switch>
             <Route exact path="/" component={TagifySearch} />
