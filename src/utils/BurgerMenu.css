@@ -15,14 +15,10 @@
 
     position: absolute;
     top: 24px;
-    /* right: 24px; */
-    z-index: 3;
 
+    z-index: 3;
     transition: all .5s ease-in-out;
 }
-/* .hidden{
-    overflow: hidden;
-} */
 
 .changed-btn {
     height: 30px;
@@ -95,7 +91,6 @@
 
 .side-drawer-items ul {
     list-style: none;
-
     text-align: center;
     padding: 0;
     margin: 0;
@@ -103,7 +98,8 @@
 }
 
 .side-drawer-items li {
-    margin-bottom: 16px;
+    text-shadow: 0 0 8px hsl(0deg 0% 100% / 33%);
+    margin-bottom: 3rem;
 }
 
 .side-drawer-items li a {
@@ -112,11 +108,4 @@
     color: #008964!important;
 }
 
-.side-drawer a {
-    margin-right: 30px;
-}
-
-.side-drawer a:last-of-type {
-    margin-right: 0;
-}
 
