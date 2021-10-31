@@ -18,6 +18,13 @@ import LoadingLottie from './utils/lottie/LoadingLottie'
 export default function App() {
   const [loading, setLoading] = useState(true)
   const [menuItem, setMenuItem]= useState('')
+
+  //Refresh page
+  function refresh(){
+    window.location.reload(false);
+  }
+  //-----------------------//
+
   useEffect(() => {
     const timer =  setTimeout(() => {
       setLoading(false)
@@ -38,7 +45,7 @@ export default function App() {
           <header>
             <BurgerMenu setMenuItem={setMenuItem}/>
               <div className="header">
-                Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
+                <span style={{cursor:'pointer'}} onClick={refresh}>Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car</span>
               </div>
           </header>
           <Switch>
