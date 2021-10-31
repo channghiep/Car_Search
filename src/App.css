@@ -1,11 +1,3 @@
-@font-face{
-  font-family: gothamBlack;
-  src: url(./fonts/Gotham-Black.otf)
-}
-@font-face{
-  font-family: gothamMedium;
-  src: url(./fonts/GothamMedium.ttf)
-}
 @import "@yaireo/tagify/dist/tagify.css"; 
 
 html,
@@ -30,20 +22,16 @@ header{
   text-shadow: 0 0 8px hsl(0deg 0% 100% / 33%);
   box-shadow: -1px 0 20px -8px 	#696969;
   text-align: right;
-  padding: 1.5rem !important;
+  padding: 1rem !important;
   margin: 0px;
+  font-weight: 700;
 }
 
 .App {
   background-color: #000;
   color: #bababa;
-  font-family: gothamMedium;
+  /* font-family: gothamMedium; */
   min-height: 100vh;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
 
 .preload-wrapper.finish {
@@ -58,18 +46,3 @@ header{
   justify-content: center;
 }
 
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

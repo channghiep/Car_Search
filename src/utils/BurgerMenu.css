@@ -15,14 +15,11 @@
 
     position: absolute;
     top: 24px;
-    /* right: 24px; */
     z-index: 3;
 
     transition: all .5s ease-in-out;
 }
-/* .hidden{
-    overflow: hidden;
-} */
+
 
 .changed-btn {
     height: 30px;
@@ -69,10 +66,7 @@
     transform: translateX(0);
 }
 
-.side-drawer {
-    /* font-family: "Montserrat", sans-serif; */
-    /* color: #FFF; */
-    
+.side-drawer {  
     background-color: #000;
     font-weight: 900;
     font-size: 24pt;
@@ -90,7 +84,6 @@
     transition: all .5s ease-in-out;
     transform: translateX(-100%);
     z-index: 2;
-    
 }
 
 .side-drawer-items ul {
@@ -108,7 +101,6 @@
 
 .side-drawer-items li a {
     text-decoration: none;
-    /* color: #FFF; */
     color: #008964!important;
 }
 

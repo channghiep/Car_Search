@@ -13,18 +13,19 @@ export default function CarCard(props){
             </div>
             <div style={{textShadow:'0 0 8px hsl(0deg 0% 100% / 33%)' }} className="carText">
                 <div className='item1'>
-                <span style={{color: '#008964', fontWeight:'ligher'}}>Brand </span><br/>
-                <span style={{ fontWeight:'bold'}}>{props.makeName}</span>
+                    <span style={{color: '#008964', fontWeight:'ligher'}}>Brand </span><br/>
+                    <span style={{ fontWeight:'bold'}}>{props.makeName}</span>
                 </div>
                 <div className='item2'>
-                <span style={{color: '#008964', fontWeight:'ligher'}}> Model </span><br/>
-                <span style={{ fontWeight:'bold'}}>{props.modelName}</span>
+                    <span style={{color: '#008964', fontWeight:'ligher'}}> Model </span><br/>
+                    <span style={{ fontWeight:'bold'}}>{props.modelName}</span>
                 </div>
                 <div className='item3'>
-                {props.modelID}
+                    <span style={{color: '#008964', fontWeight:'ligher'}}> Car ID </span><br/>
+                    <span style={{ fontWeight:'bold'}}>{props.modelID}</span>                
                 </div>
                 <div style={{color: '#00563f', fontWeight:'bold'}} className='item4'>
-                DETAILS
+                    DETAILS
                 </div>
             </div>
         </div>
