@@ -177,10 +177,6 @@ const TagifySearch = () => {
   return (
     <>
       <div className="mainTag">
-        <div className="searchBar">
-          <div className="iconCont">
-            <img src={searchIcon} alt="search icon"/>
-          </div>
           <Tags
             className="tagClass"
             tagifyRef={tagifyRef1}
@@ -199,7 +195,6 @@ const TagifySearch = () => {
             onDropdownNoMatch={() => console.log("onDropdownNoMatch")}
             onDropdownUpdated={() => console.log("onDropdownUpdated")}
           />
-        </div>
         {notice ? <p style={{textAlign:"center"}}>Please enter Make</p> : <p></p>}
         {loading ? 
           <div style={{height:'70vh'}} class="preload-wrapper">
