@@ -1,3 +1,15 @@
+.tagify {
+    --tag-bg: #6C0E42;
+    --tag-text-color: white;
+    --tag-text-color--edit: var(--tag-bg);
+    --tag-hover: rgb(162,8,56);
+    --tag-remove-btn-color: white;
+    border: 0px;
+}
+.tagify__input:empty::before {
+    color:#fff;
+    font-weight: 100;
+}
 .searchBar{
     margin: 20px auto;
     max-width: 600px;
