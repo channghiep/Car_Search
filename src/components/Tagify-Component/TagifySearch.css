@@ -7,7 +7,7 @@
     --tag-hover: rgb(162,8,56);
     --tag-remove-btn-color: white;
     background: url('../../assets/search.svg' ) 0 no-repeat;
-    background-color: #bababa;
+    background-color: #fff;
     background-position: 10px;
     background-size: 16.5px;
     border-radius: 0;
@@ -22,10 +22,6 @@
     color:black;
     font-weight: 500;
 }
-/* .tagify__input:focus {
-    color:black;
-    font-weight: 500;
-} */
 
 .carContainer{
     display: grid;

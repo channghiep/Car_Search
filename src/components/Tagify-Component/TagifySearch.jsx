@@ -23,7 +23,7 @@ const baseTagifySettings = {
   }
 }
 
-const TagifySearch = () => {
+const TagifySearch = (props) => {
   const tagifyRef1 = useRef()
   const [tagifySettings, setTagifySettings] = useState([])
   // const [tagifyProps, setTagifyProps] = useState({})
@@ -43,15 +43,28 @@ const TagifySearch = () => {
   }
   //Monitor Changing in Search Value
   const onChange = useCallback(e => {
-    console.log("CHANGED:", e.detail.value)
-    console.log(typeof e.detail.value)
     setSearchVal(e.detail.value)
   }, [])
 
+  //Monitor menu selection
+  useEffect(()=>{
+    setCarList([])
+    clearAll()
+    Axios.get(`https://vpic.nhtsa.dot.gov/api/vehicles/GetModelsForMake/${props.menuItem}?format=json`).then(res=>{
+      if(Boolean(res.data.Count) === true){
+        setCarList(res.data.Results)
+        setLoading(false)
+      }
+    }).catch((error)=>{
+      console.log(error)
+    })
+  },[props.menuItem])
+  //--------------------------//
+
   // access Tagify clearAll:
-  // const clearAll = () => {
-  //   tagifyRef1.current && tagifyRef1.current.removeAllTags()
-  // }
+  const clearAll = () => {
+    tagifyRef1.current && tagifyRef1.current.removeAllTags()
+  }
   //----------------------------//
 
   useEffect(()=>{
@@ -104,7 +117,6 @@ const TagifySearch = () => {
   },[searchVal])
   //This function will go through the objectArray to indentify what API can be used base on user's input
   function fetchData(objectArray){
-    console.log(objectArray)
     let make = '';
     let type = '';
     let year = '';

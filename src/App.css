@@ -12,9 +12,6 @@ body,
 *::after {
   box-sizing: border-box;
 } 
-/* body  */
-#app *{ padding: 0 1.5rem; }
-
 
 header{
   color: #fff;
@@ -30,7 +27,6 @@ header{
 .App {
   background-color: #000;
   color: #bababa;
-  /* font-family: gothamMedium; */
   min-height: 100vh;
 }
 

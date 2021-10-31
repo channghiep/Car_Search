@@ -17,6 +17,7 @@ import LoadingLottie from './utils/lottie/LoadingLottie'
 
 export default function App() {
   const [loading, setLoading] = useState(true)
+  const [menuItem, setMenuItem]= useState('')
   useEffect(() => {
     const timer =  setTimeout(() => {
       setLoading(false)
@@ -35,16 +36,16 @@ export default function App() {
       <div style={{display:'grid', gridTemplateColumns:'100%'}}>
         <Router>
           <header>
-            <BurgerMenu/>
-            {/* <a style={{textDecoration:'none', color:'white'}} href="http://localhost:3000"> */}
+            <BurgerMenu setMenuItem={setMenuItem}/>
               <div className="header">
                 Fin<span style={{color: '#008964', fontWeight:'ligher'}}>da</span>Car
               </div>
-            {/* </a> */}
           </header>
           <Switch>
             <div>
-            <Route exact path="/" component={TagifySearch} />
+            <Route exact path="/">
+              <TagifySearch menuItem={menuItem}/>
+            </Route>
             </div>
           </Switch>
         </Router>
