@@ -31,9 +31,9 @@ export default function BurgerMenu() {
             <nav className="side-drawer">
                 <div className="side-drawer-items">
                     <ul>
-                        <li><Link onClick= {openMenuBar} to="/"><a href="/">Toyota</a></Link></li>
-                        <li><Link onClick= {openMenuBar} to="/"><a href="/">Honda</a></Link></li>
-                        <li><Link onClick= {openMenuBar} to="/"><a href="/">BMW</a></Link></li>
+                        <li style={{cursor:"pointer"}}><Link onClick= {openMenuBar} to="/"><a  href="/">Toyota</a></Link></li>
+                        <li style={{cursor:"pointer"}}><Link onClick= {openMenuBar} to="/"><a  href="/">Honda</a></Link></li>
+                        <li style={{cursor:"pointer"}}><Link onClick= {openMenuBar} to="/"><a  href="/">BMW</a></Link></li>
                     </ul>
                 </div>
 
