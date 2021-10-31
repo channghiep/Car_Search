@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/static/css/main.222bf399.chunk.css",
     "main.js": "/static/js/main.cbdfeaa6.chunk.js",
     "main.js.map": "/static/js/main.cbdfeaa6.chunk.js.map",
@@ -14,13 +15,36 @@
     "static/css/2.70849a63.chunk.css.map": "/static/css/2.70849a63.chunk.css.map",
     "static/css/main.222bf399.chunk.css.map": "/static/css/main.222bf399.chunk.css.map",
     "static/js/2.e6d6256b.chunk.js.LICENSE.txt": "/static/js/2.e6d6256b.chunk.js.LICENSE.txt",
+=======
+    "main.css": "/static/css/main.13540732.chunk.css",
+    "main.js": "/static/js/main.ea5573fe.chunk.js",
+    "main.js.map": "/static/js/main.ea5573fe.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.0ca01b0a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.0ca01b0a.js.map",
+    "static/css/2.acd67b19.chunk.css": "/static/css/2.acd67b19.chunk.css",
+    "static/js/2.bcbc42a0.chunk.js": "/static/js/2.bcbc42a0.chunk.js",
+    "static/js/2.bcbc42a0.chunk.js.map": "/static/js/2.bcbc42a0.chunk.js.map",
+    "static/js/3.4f85b906.chunk.js": "/static/js/3.4f85b906.chunk.js",
+    "static/js/3.4f85b906.chunk.js.map": "/static/js/3.4f85b906.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.acd67b19.chunk.css.map": "/static/css/2.acd67b19.chunk.css.map",
+    "static/css/main.13540732.chunk.css.map": "/static/css/main.13540732.chunk.css.map",
+    "static/js/2.bcbc42a0.chunk.js.LICENSE.txt": "/static/js/2.bcbc42a0.chunk.js.LICENSE.txt",
+>>>>>>> 58c9ffcd56709d7b20f045419b9e698e838a62d2
     "static/media/App.css": "/static/media/GothamMedium.0a910c0b.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.0ca01b0a.js",
+<<<<<<< HEAD
     "static/css/2.70849a63.chunk.css",
     "static/js/2.e6d6256b.chunk.js",
     "static/css/main.222bf399.chunk.css",
     "static/js/main.cbdfeaa6.chunk.js"
+=======
+    "static/css/2.acd67b19.chunk.css",
+    "static/js/2.bcbc42a0.chunk.js",
+    "static/css/main.13540732.chunk.css",
+    "static/js/main.ea5573fe.chunk.js"
+>>>>>>> 58c9ffcd56709d7b20f045419b9e698e838a62d2
   ]
 }

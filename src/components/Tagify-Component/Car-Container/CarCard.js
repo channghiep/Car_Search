@@ -27,6 +27,9 @@ export default function CarCard(props){
                 <div style={{color: '#00563f', fontWeight:'bold'}} className='item4'>
                     DETAILS
                 </div>
+                    <div style={{color: '#00563f', fontWeight:'bold'}} className='item4'>
+                    <p>DETAILS</p>
+                    </div>
             </div>
         </div>
     )

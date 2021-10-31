@@ -1,4 +1,6 @@
+@import "@yaireo/tagify/dist/tagify.css"; 
 .tagify {
+    overflow: hidden;
     --tag-bg: #6C0E42;
     --tag-text-color: white;
     --tag-text-color--edit: var(--tag-bg);
@@ -6,28 +8,31 @@
     --tag-remove-btn-color: white;
     border: 0px;
 }
+
 .tagify__input:empty::before {
+    padding-top: .5rem;
     color:#fff;
     font-weight: 100;
+    font-size: 1.2rem;
 }
+
 .searchBar{
     margin: 20px auto;
     max-width: 600px;
     width: 94%;
     display: grid;
     grid-template-columns: 50px auto;
-    height: 37.594px;
+    height: 3rem;
     border: 1px white solid;
 }
 
 .iconCont{
-    height: 37.594px;
+    height: 3rem;
 }
 
 .iconCont img{
     display: block;
-    margin: 10% auto;
-    top: 45%;
+    margin: .5rem auto;
     width: 50%;
     height: 60%;
 

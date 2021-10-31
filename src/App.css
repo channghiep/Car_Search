@@ -34,6 +34,7 @@ header{
   min-height: 100vh;
 }
 
+
 .preload-wrapper.finish {
   opacity: 0;
   transition: opacity .5s ease-out;

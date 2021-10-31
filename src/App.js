@@ -32,6 +32,7 @@ export default function App() {
           </div>
         </div>
       :
+      <div style={{display:'grid', gridTemplateColumns:'100%'}}>
         <Router>
           <header>
             <BurgerMenu/>
@@ -42,9 +43,12 @@ export default function App() {
             {/* </a> */}
           </header>
           <Switch>
+            <div>
             <Route exact path="/" component={TagifySearch} />
+            </div>
           </Switch>
         </Router>
+      </div>
       }
     </div>  
   )
